@@ -10,9 +10,7 @@
   <header class="site-header">
     <div class="container headbar">
       <h1 class="brand">Expansion européenne, plantations & traite atlantique</h1>
-      <button id="themeToggle" class="btn icon" aria-label="Basculer le thème" title="Basculer clair/sombre">
-        <span aria-hidden="true">🌓</span>
-      </button>
+      <button id="themeToggle" class="btn icon" aria-label="Basculer le thème" title="Basculer clair/sombre">🌓</button>
     </div>
     <nav class="container tabs" aria-label="Navigation principale">
       <a href="#cours" class="tab">Cours</a>
@@ -28,7 +26,7 @@
     <section id="cours" class="panel">
       <header class="panel-head">
         <h2>Leçon complète</h2>
-        <p class="muted">Tout le contenu ci-dessous reprend fidèlement la leçon.</p>
+        <p class="muted">Contenu fidèle à ta leçon.</p>
       </header>
 
       <article class="lesson">
@@ -83,29 +81,29 @@
       </article>
     </section>
 
-    <!-- ===== SCHÉMA ===== -->
+    <!-- ===== SCHÉMA (annoté) ===== -->
     <section id="triangle" class="panel">
       <header class="panel-head">
-        <h2>Schéma — Commerce triangulaire</h2>
-        <p class="muted">Ce schéma résume les circulations Europe ⇄ Afrique ⇄ Amériques.</p>
+        <h2>Schéma — Commerce triangulaire (avec explications)</h2>
+        <p class="muted">Encarts ajoutés pour expliciter chaque trajet.</p>
       </header>
       <div class="svgwrap">
-        <svg viewBox="0 0 860 520" role="img" aria-label="Schéma du commerce triangulaire">
-          <!-- Nodes -->
+        <svg viewBox="0 0 900 560" role="img" aria-label="Schéma du commerce triangulaire annoté">
+          <!-- Nœuds -->
           <g class="node">
-            <rect x="60" y="220" rx="14" ry="14" width="200" height="72"></rect>
-            <text x="160" y="264" text-anchor="middle">Europe</text>
+            <rect x="60" y="240" width="200" height="72" rx="14" ry="14"></rect>
+            <text x="160" y="284" text-anchor="middle">Europe</text>
           </g>
           <g class="node">
-            <rect x="330" y="60" rx="14" ry="14" width="180" height="72"></rect>
-            <text x="420" y="104" text-anchor="middle">Afrique</text>
+            <rect x="360" y="70" width="180" height="72" rx="14" ry="14"></rect>
+            <text x="450" y="114" text-anchor="middle">Afrique</text>
           </g>
           <g class="node">
-            <rect x="620" y="370" rx="14" ry="14" width="200" height="72"></rect>
-            <text x="720" y="414" text-anchor="middle">Amériques</text>
+            <rect x="660" y="400" width="200" height="72" rx="14" ry="14"></rect>
+            <text x="760" y="444" text-anchor="middle">Amériques</text>
           </g>
 
-          <!-- Arrows -->
+          <!-- Flèches -->
           <defs>
             <marker id="arrA" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
               <polygon points="0 0, 7 3.5, 0 7" class="mk1"></polygon>
@@ -116,19 +114,61 @@
           </defs>
 
           <!-- Europe -> Afrique -->
-          <path d="M260 256 C 320 170, 350 140, 420 120"
+          <path d="M260 276 C 330 180, 360 150, 450 130"
                 class="edge good" marker-end="url(#arrA)"></path>
-          <text x="320" y="165" class="edge-label">marchandises (armes, tissus, alcool)</text>
+          <g class="pin" transform="translate(340,190)">
+            <circle r="10"></circle><text text-anchor="middle" dy="4">1</text>
+          </g>
 
           <!-- Afrique -> Amériques -->
-          <path d="M420 132 C 540 190, 590 290, 720 380"
+          <path d="M450 142 C 570 200, 630 300, 760 395"
                 class="edge danger" marker-end="url(#arrB)"></path>
-          <text x="535" y="235" class="edge-label">esclaves déportés</text>
+          <g class="pin danger" transform="translate(620,265)">
+            <circle r="10"></circle><text text-anchor="middle" dy="4">2</text>
+          </g>
 
           <!-- Amériques -> Europe -->
-          <path d="M708 380 C 580 365, 405 325, 260 260"
+          <path d="M748 400 C 600 380, 420 330, 260 280"
                 class="edge good" marker-end="url(#arrA)"></path>
-          <text x="450" y="345" class="edge-label">produits coloniaux (sucre, café, coton)</text>
+          <g class="pin" transform="translate(500,360)">
+            <circle r="10"></circle><text text-anchor="middle" dy="4">3</text>
+          </g>
+
+          <!-- Encarts explicatifs -->
+          <g class="call" transform="translate(280,140)">
+            <rect width="360" height="110"></rect>
+            <text x="14" y="22">
+              <tspan x="14" dy="0"><tspan font-weight="700">1) Europe → Afrique</tspan> :</tspan>
+              <tspan x="14" dy="20">des marchands européens apportent des marchandises</tspan>
+              <tspan x="14" dy="20">(armes, tissus, alcool, objets manufacturés)</tspan>
+              <tspan x="14" dy="20">pour acheter des captifs auprès de réseaux locaux.</tspan>
+            </text>
+          </g>
+
+          <g class="call" transform="translate(520,220)">
+            <rect width="300" height="80"></rect>
+            <text x="14" y="22">
+              <tspan x="14" dy="0"><tspan font-weight="700">2) Afrique → Amériques</tspan> :</tspan>
+              <tspan x="14" dy="20">des millions d’Africains sont déportés de force</tspan>
+              <tspan x="14" dy="20">sur des navires négriers.</tspan>
+            </text>
+          </g>
+
+          <g class="call" transform="translate(320,390)">
+            <rect width="460" height="120"></rect>
+            <text x="14" y="22">
+              <tspan x="14" dy="0"><tspan font-weight="700">3) Amériques → Europe</tspan> :</tspan>
+              <tspan x="14" dy="20">ces personnes réduites en esclavage travaillent dans les plantations</tspan>
+              <tspan x="14" dy="20">(sucre, café, coton, etc.) ; les produits coloniaux sont expédiés</tspan>
+              <tspan x="14" dy="20">surtout vers l’Europe, enrichissant compagnies et ports</tspan>
+              <tspan x="14" dy="20">(régime de l’« exclusif » et des monopoles).</tspan>
+            </text>
+          </g>
+
+          <!-- Petites rappels -->
+          <text x="330" y="165" class="edge-label">marchandises</text>
+          <text x="630" y="240" class="edge-label">esclaves déportés</text>
+          <text x="470" y="340" class="edge-label">produits coloniaux</text>
         </svg>
       </div>
     </section>
@@ -139,7 +179,6 @@
         <h2>Flashcards — Mots clés</h2>
         <p class="muted">Clique pour retourner. « Suivant » défile ; « Je savais » retire la carte ; « Je ne savais pas » la replanifie.</p>
       </header>
-
       <div class="flash">
         <div class="card" id="flip">
           <div class="face front">
@@ -171,7 +210,7 @@
       <div id="quizWrap"></div>
     </section>
 
-    <!-- ===== RECIT ===== -->
+    <!-- ===== RÉCIT ===== -->
     <section id="recit" class="panel">
       <header class="panel-head">
         <h2>Récit minute</h2>
