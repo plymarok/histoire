@@ -73,4 +73,45 @@ const triData=[
   {
     f1:{q:"Quel texte fixe le statut des esclaves ?",a:"Le Code noir."},
     f2:{q:"Que dit-il ?",a:"Les esclaves sont des biens meubles."},
-    f3:{q:"Ce que cela révèle ?",a:"Une désh
+    f3:{q:"Ce que cela révèle ?",a:"Une déshumanisation juridique."}
+  },
+  {
+    f1:{q:"Que dénoncent les abolitionnistes ?",a:"Les conditions des esclaves et la traite."},
+    f2:{q:"Quelle valeur les motive ?",a:"Les valeurs humanistes et religieuses."},
+    f3:{q:"Quel objectif concret ?",a:"Abolir la traite et l’esclavage."}
+  },
+  {
+    f1:{q:"Quels produits sont cultivés dans les plantations ?",a:"Sucre, café, coton."},
+    f2:{q:"Pourquoi ces cultures demandent-elles beaucoup de main-d’œuvre ?",a:"Elles sont intensives et destinées à l’export."},
+    f3:{q:"Quel système de travail s’y impose ?",a:"L’esclavage."}
+  },
+  {
+    f1:{q:"Quelles conséquences globales a le commerce triangulaire ?",a:"Il enrichit l’Europe."},
+    f2:{q:"Conséquence pour l’Afrique ?",a:"Appauvrissement humain et guerres."},
+    f3:{q:"Conséquence pour les Amériques ?",a:"Économie de plantation basée sur l’esclavage."}
+  }
+];
+
+const quizDiv=document.getElementById("triQuizWrap");
+triData.forEach((item,i)=>{
+  const card=document.createElement("div");
+  card.className="tri-card";
+  const title=document.createElement("h4");
+  title.textContent=`Q${i+1}. ${item.f1.q}`;
+  card.appendChild(title);
+  ["f1","f2","f3"].forEach((key,j)=>{
+    const f=document.createElement("div");
+    f.className="faisceau";
+    f.innerHTML=`<strong>F${j+1}:</strong> ${item[key].q}`;
+    f.addEventListener("click",()=>{
+      f.classList.toggle("open");
+      if(f.classList.contains("open")){
+        f.innerHTML=`<strong>F${j+1}:</strong> ${item[key].q}<br><em>Réponse:</em> ${item[key].a}`;
+      }else{
+        f.innerHTML=`<strong>F${j+1}:</strong> ${item[key].q}`;
+      }
+    });
+    card.appendChild(f);
+  });
+  quizDiv.appendChild(card);
+});
