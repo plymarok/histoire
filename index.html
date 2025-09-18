@@ -160,3 +160,54 @@
           <span id="fcProgress" class="muted"></span>
         </div>
       </div>
+    </section>
+
+    <!-- ===== QUIZ ===== -->
+    <section id="quiz" class="panel">
+      <header class="panel-head">
+        <h2>Quiz — Rappel actif</h2>
+        <p class="muted">30 questions couvrant toute la leçon. Score sauvegardé localement.</p>
+      </header>
+      <div id="quizWrap"></div>
+    </section>
+
+    <!-- ===== RECIT ===== -->
+    <section id="recit" class="panel">
+      <header class="panel-head">
+        <h2>Récit minute</h2>
+        <p class="muted">Sans regarder, rédige 6–8 lignes : colonisation → compagnies & bourgeoisies → plantations → traite → abolition.</p>
+      </header>
+      <div class="grid">
+        <textarea id="recitText" rows="10" class="textbox" placeholder="Écris ton récit ici…"></textarea>
+        <aside class="hint">
+          <details>
+            <summary>Afficher un exemple possible</summary>
+            <p class="muted">
+              Dès le XVe siècle, les Européens colonisent des territoires outre-mer. Aux XVIIe-XVIIIe siècles,
+              les États accordent aux grandes compagnies l’exclusif et des monopoles, ce qui enrichit les
+              bourgeoisies des ports et développe une consommation coloniale (café, sucre, coton). Pour alimenter
+              ce marché, les colonies organisent des plantations reposant sur l’esclavage. La traite atlantique
+              déporte des millions d’Africains vers les Amériques sur des navires négriers ; le Code noir
+              définit leur statut. Face à ces violences, des Européens engagent des mouvements abolitionnistes
+              qui militent pour la fin de la traite et de l’esclavage.
+            </p>
+          </details>
+          <div class="actions">
+            <button class="btn" id="saveRecit">Enregistrer</button>
+            <button class="btn ghost" id="clearRecit">Effacer</button>
+            <span id="recitInfo" class="muted"></span>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Site hors-ligne. Thème, score, récit et progression restent sur votre navigateur.</small>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
