@@ -1,139 +1,48 @@
-/* ===== Thème ===== */
-:root{
-  --bg:#0f1115; --panel:#171a21; --ink:#e9ecf1; --muted:#9aa4b2;
-  --line:#242a38; --tab-bg:#141a25; --radius:18px;
-  --shadow:0 10px 30px rgba(0,0,0,.35);
-  --accent:#67b0ff; --accent-2:#7bd389; --danger:#ef6b73;
+/* Variables de thème et styles globaux déjà donnés */
+:root{--bg:#0f1115;--panel:#171a21;--ink:#e9ecf1;--muted:#9aa4b2;--line:#242a38;--tab-bg:#141a25;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35);--accent:#67b0ff;--accent-2:#7bd389;--danger:#ef6b73;--node-fill:#0f1624;--node-stroke:#38506d;--edge-good:var(--accent-2);--edge-danger:var(--danger);--edge-label:var(--muted);}
+html[data-theme="light"]{--bg:#f7f8fb;--panel:#fff;--ink:#0b1220;--muted:#556070;--line:#dfe5ee;--tab-bg:#eef2f8;--shadow:0 12px 28px rgba(15,30,60,.08);--node-fill:#f1f6ff;--node-stroke:#94add0;--edge-good:#2d7a46;--edge-danger:#c23a3a;--edge-label:#4b5563;}
 
-  /* Schéma */
-  --node-fill:#0f1624; --node-stroke:#38506d;
-  --edge-good:var(--accent-2); --edge-danger:var(--danger);
-  --edge-label:var(--muted);
+body{margin:0;color:var(--ink);font:16px/1.6 system-ui;background:var(--bg);}
+.container{max-width:1100px;margin:auto;padding:18px}
 
-  /* Quiz (dark) */
-  --opt-bg: color-mix(in oklab, var(--panel) 90%, #0f1420 10%);
-  --opt-right-bg: color-mix(in oklab, var(--panel) 85%, #10331f 15%);
-  --opt-right-border:#2a5a3d;
-  --opt-wrong-bg: color-mix(in oklab, var(--panel) 85%, #3a1416 15%);
-  --opt-wrong-border:#5a2a2f;
+/* Header */
+.site-header{position:sticky;top:0;background:var(--panel);border-bottom:1px solid var(--line)}
+.headbar{display:flex;justify-content:space-between;align-items:center}
+.brand{margin:0}
+.tabs{display:flex;gap:10px}
+.tab{padding:8px 12px;background:var(--tab-bg);border-radius:12px;text-decoration:none;color:var(--ink)}
 
-  /* Encarts schéma */
-  --call-fill: color-mix(in oklab, var(--panel) 92%, #0e1625 8%);
-  --call-stroke: var(--node-stroke);
-}
-html[data-theme="light"]{
-  --bg:#f7f8fb; --panel:#ffffff; --ink:#0b1220; --muted:#556070;
-  --line:#dfe5ee; --tab-bg:#eef2f8; --shadow:0 12px 28px rgba(15,30,60,.08);
+/* Panels */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:20px 0;padding:20px}
+.panel-head{border-bottom:1px solid var(--line);margin-bottom:12px}
 
-  /* Schéma (clair) */
-  --node-fill:#f1f6ff; --node-stroke:#94add0;
-  --edge-good:#2d7a46; --edge-danger:#c23a3a; --edge-label:#4b5563;
-
-  /* Quiz (clair) */
-  --opt-bg:#ffffff;
-  --opt-right-bg:#eaf7ef; --opt-right-border:#2e7d32;
-  --opt-wrong-bg:#fdecec; --opt-wrong-border:#d83b42;
-
-  /* Encarts schéma (clair) */
-  --call-fill:#ffffff;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0; color:var(--ink);
-  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;
-  background: radial-gradient(1200px 800px at 10% -10%, #1a1f2b 0%, var(--bg) 60%);
-}
-html[data-theme="light"] body{
-  background: radial-gradient(1000px 700px at 10% -10%, #ffffff 0%, var(--bg) 70%);
-}
-.container{max-width:1100px; margin:auto; padding:18px 22px}
-
-/* ===== Header / Tabs ===== */
-.site-header{position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
-  border-bottom:1px solid var(--line);
-  background: color-mix(in oklab, var(--bg) 85%, #1b2030 15%);
-}
-html[data-theme="light"] .site-header{
-  background: color-mix(in oklab, var(--bg) 92%, #ffffff 8%);
-}
-.headbar{display:flex; align-items:center; justify-content:space-between; gap:12px}
-.brand{margin:0; font-size:clamp(18px,2.3vw,28px)}
-.tabs{display:flex; gap:10px; flex-wrap:wrap; padding-top:0}
-.tab{display:inline-block; padding:10px 12px; border-radius:12px;
-  text-decoration:none; color:var(--ink); background:var(--tab-bg);
-  border:1px solid var(--line); transition:.18s}
-.tab:hover{transform:translateY(-1px); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent)}
-
-.btn{appearance:none; border:1px solid var(--line); background:var(--panel);
-  color:var(--ink); padding:10px 14px; border-radius:14px; cursor:pointer;
-  transition:.18s; font-weight:600}
-.btn:hover{transform:translateY(-1px); box-shadow:0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent)}
-.btn.ghost{background:transparent}
-.btn.subtle{opacity:.85}
-.btn.icon{display:inline-grid; place-items:center; width:44px; height:44px; font-size:20px}
-
-/* ===== Panels ===== */
-.panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-  margin:26px 0; overflow:hidden; box-shadow:var(--shadow)}
-.panel-head{padding:18px 22px; border-bottom:1px solid var(--line);
-  background:linear-gradient(90deg, color-mix(in oklab, var(--panel) 85%, #1a2130 15%), var(--panel))}
-html[data-theme="light"] .panel-head{
-  background:linear-gradient(90deg, color-mix(in oklab, var(--panel) 92%, #eef3ff 8%), var(--panel));
-}
-.panel .muted{color:var(--muted)}
-.lesson{padding:18px 22px}
-.lesson h3{margin-top:14px}
-.lesson h4{margin-bottom:6px}
-
-/* ===== Schéma triangulaire ===== */
-.svgwrap{padding:18px; display:grid; place-items:center}
-svg{max-width:100%; height:auto}
-.node rect{fill:var(--node-fill); stroke:var(--node-stroke); stroke-width:1.2}
-.node text{fill:var(--ink); font-weight:700}
-.edge{stroke-width:3; fill:none}
+/* Schéma */
+.svgwrap{display:grid;place-items:center}
+.node rect{fill:var(--node-fill);stroke:var(--node-stroke)}
+.node text{fill:var(--ink);font-weight:700}
+.edge{stroke-width:3;fill:none}
 .edge.good{stroke:var(--edge-good)}
 .edge.danger{stroke:var(--edge-danger)}
-.edge-label{fill:var(--edge-label); font-size:13px}
-.mk1{fill:var(--edge-good)} .mk2{fill:var(--edge-danger)}
-.call rect{fill:var(--call-fill); stroke:var(--call-stroke); stroke-width:1.2; rx:12; ry:12}
-.call text{fill:var(--ink); font-size:13.5px}
-.pin circle{fill:var(--edge-good)}
-.pin.danger circle{fill:var(--edge-danger)}
-.pin text{fill:#fff; font-weight:700; font-size:12px}
+.edge-label{fill:var(--edge-label);font-size:13px}
+.mk1{fill:var(--edge-good)}.mk2{fill:var(--edge-danger)}
+.explications{margin-top:15px}
+.explications p{margin:8px 0}
 
-/* ===== Flashcards ===== */
-.flash{padding:18px 22px}
-.card{position:relative; height:220px; perspective:1000px}
-.card .face{position:absolute; inset:0; border-radius:16px; border:1px solid var(--line);
-  background:color-mix(in oklab, var(--panel) 92%, #0f1320 8%);
-  display:grid; place-items:center; text-align:center; padding:22px; backface-visibility:hidden; transform-style:preserve-3d; transition:transform .5s}
-html[data-theme="light"] .card .face{background:#fff}
+/* Flashcards */
+.flash{padding:10px}
+.card{position:relative;height:220px;perspective:1000px}
+.card .face{position:absolute;inset:0;border:1px solid var(--line);display:grid;place-items:center;border-radius:12px;backface-visibility:hidden;transition:transform .5s;background:var(--panel)}
 .card .back{transform:rotateY(180deg)}
 .card.is-flipped .front{transform:rotateY(180deg)}
 .card.is-flipped .back{transform:rotateY(360deg)}
-.chip{font-size:12px; border:1px solid var(--line); padding:2px 8px; border-radius:999px; color:var(--muted)}
-.def{max-width:580px; font-size:18px}
-.flash-actions{display:flex; gap:10px; align-items:center; margin-top:12px}
+.flash-actions{margin-top:10px;display:flex;gap:8px}
 
-/* ===== Quiz ===== */
-#quizWrap{padding:18px 22px}
-.q{border:1px solid var(--line); border-radius:14px; padding:14px; margin:14px 0; background:var(--opt-bg)}
-.q h4{margin:0 0 10px 0}
-.opt{display:block; padding:10px 12px; border:1px solid var(--line); border-radius:12px; margin:8px 0; cursor:pointer; background:#fff0}
-html[data-theme="light"] .opt{background:#fff}
-.opt[data-picked="true"]{outline:2px solid color-mix(in oklab, var(--accent) 60%, transparent)}
-.opt[data-state="right"]{background:var(--opt-right-bg); border-color:var(--opt-right-border)}
-.opt[data-state="wrong"]{background:var(--opt-wrong-bg); border-color:var(--opt-wrong-border)}
+/* Quiz */
+.q{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
+.opt{padding:8px;border:1px solid var(--line);border-radius:8px;margin:6px 0;cursor:pointer}
+.opt[data-picked="true"]{outline:2px solid var(--accent)}
+.opt[data-state="right"]{background:var(--accent-2)}
+.opt[data-state="wrong"]{background:var(--danger)}
 
-/* ===== Récit ===== */
-.grid{display:grid; gap:16px}
-@media (min-width:900px){ .grid{grid-template-columns:1fr 1fr} }
-.textbox{width:100%; min-height:220px; border:1px solid var(--line); border-radius:12px; padding:14px;
-  background:color-mix(in oklab, var(--panel) 92%, #0e1117 8%); color:var(--ink)}
-html[data-theme="light"] .textbox{background:#fff}
-.hint{border:1px dashed var(--line); border-radius:12px; padding:14px}
-.actions{display:flex; gap:10px; align-items:center; margin-top:10px}
-
-.site-footer{border-top:1px solid var(--line); padding:24px 0; text-align:center; color:var(--muted)}
+/* Récit */
+.textbox{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px}
