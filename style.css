@@ -5,11 +5,9 @@
   --shadow:0 10px 30px rgba(0,0,0,.35);
   --accent:#67b0ff; --accent-2:#7bd389; --danger:#ef6b73;
 
-  /* Schéma (couleurs adaptatives) */
-  --node-fill:#0f1624;
-  --node-stroke:#38506d;
-  --edge-good:var(--accent-2);
-  --edge-danger:var(--danger);
+  /* Schéma */
+  --node-fill:#0f1624; --node-stroke:#38506d;
+  --edge-good:var(--accent-2); --edge-danger:var(--danger);
   --edge-label:var(--muted);
 
   /* Quiz / options (dark) */
@@ -19,24 +17,18 @@
   --opt-wrong-bg: color-mix(in oklab, var(--panel) 85%, #3a1416 15%);
   --opt-wrong-border:#5a2a2f;
 }
-
 html[data-theme="light"]{
   --bg:#f7f8fb; --panel:#ffffff; --ink:#0b1220; --muted:#556070;
   --line:#dfe5ee; --tab-bg:#eef2f8; --shadow:0 12px 28px rgba(15,30,60,.08);
 
   /* Schéma (clair) */
-  --node-fill:#f1f6ff;          /* plus clair pour éviter le “bloc noir” */
-  --node-stroke:#94add0;
-  --edge-good:#2d7a46;          /* vert lisible */
-  --edge-danger:#c23a3a;        /* rouge lisible */
-  --edge-label:#4b5563;
+  --node-fill:#f1f6ff; --node-stroke:#94add0;
+  --edge-good:#2d7a46; --edge-danger:#c23a3a; --edge-label:#4b5563;
 
-  /* Quiz (clair, plus contrasté) */
+  /* Quiz (clair contrasté) */
   --opt-bg:#ffffff;
-  --opt-right-bg:#eaf7ef;
-  --opt-right-border:#2e7d32;
-  --opt-wrong-bg:#fdecec;
-  --opt-wrong-border:#d83b42;
+  --opt-right-bg:#eaf7ef; --opt-right-border:#2e7d32;
+  --opt-wrong-bg:#fdecec; --opt-wrong-border:#d83b42;
 }
 
 *{box-sizing:border-box}
@@ -46,11 +38,9 @@ body{
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial;
   background: radial-gradient(1200px 800px at 10% -10%, #1a1f2b 0%, var(--bg) 60%);
 }
-/* fond plus clair en mode clair (évite un halo sombre) */
 html[data-theme="light"] body{
   background: radial-gradient(1000px 700px at 10% -10%, #ffffff 0%, var(--bg) 70%);
 }
-
 .container{max-width:1100px; margin:auto; padding:18px 22px}
 
 /* ===== Header / Tabs ===== */
@@ -90,7 +80,7 @@ html[data-theme="light"] .panel-head{
 .lesson h3{margin-top:14px}
 .lesson h4{margin-bottom:6px}
 
-/* ===== Schéma triangulaire (thème-aware) ===== */
+/* ===== Schéma triangulaire ===== */
 .svgwrap{padding:18px; display:grid; place-items:center}
 svg{max-width:100%; height:auto}
 .node rect{fill:var(--node-fill); stroke:var(--node-stroke); stroke-width:1.2}
@@ -115,7 +105,7 @@ html[data-theme="light"] .card .face{background:#fff}
 .def{max-width:580px; font-size:18px}
 .flash-actions{display:flex; gap:10px; align-items:center; margin-top:12px}
 
-/* ===== Quiz (contrastes renforcés en clair) ===== */
+/* ===== Quiz ===== */
 #quizWrap{padding:18px 22px}
 .q{border:1px solid var(--line); border-radius:14px; padding:14px; margin:14px 0; background:var(--opt-bg)}
 .q h4{margin:0 0 10px 0}
