@@ -10,23 +10,20 @@
   <header class="site-header">
     <div class="container headbar">
       <h1 class="brand">Expansion européenne, plantations & traite atlantique</h1>
-      <button id="themeToggle" class="btn icon" aria-label="Basculer le thème" title="Basculer clair/sombre">🌓</button>
+      <button id="themeToggle" class="btn icon" aria-label="Basculer le thème">🌓</button>
     </div>
-    <nav class="container tabs" aria-label="Navigation principale">
+    <nav class="container tabs">
       <a href="#cours" class="tab">Cours</a>
       <a href="#triangle" class="tab">Schéma</a>
       <a href="#flashcards" class="tab">Flashcards</a>
-      <a href="#quiz" class="tab">Quiz</a>
-      <a href="#recit" class="tab">Récit minute</a>
+      <a href="#triQuiz" class="tab">Quiz triangulé</a>
     </nav>
   </header>
 
   <main class="container">
     <!-- ===== COURS ===== -->
     <section id="cours" class="panel">
-      <header class="panel-head">
-        <h2>Leçon complète</h2>
-      </header>
+      <header class="panel-head"><h2>Leçon complète</h2></header>
       <article class="lesson">
         <h3>I — L’expansion européenne et les bourgeoisies marchandes</h3>
         <h4>A — La colonisation</h4>
@@ -47,9 +44,7 @@
 
     <!-- ===== SCHÉMA ===== -->
     <section id="triangle" class="panel">
-      <header class="panel-head">
-        <h2>Schéma — Commerce triangulaire</h2>
-      </header>
+      <header class="panel-head"><h2>Schéma — Commerce triangulaire</h2></header>
       <div class="svgwrap">
         <svg viewBox="0 0 900 560" role="img" aria-label="Schéma du commerce triangulaire">
           <g class="node"><rect x="60" y="240" width="200" height="72" rx="14" ry="14"></rect><text x="160" y="284" text-anchor="middle">Europe</text></g>
@@ -92,30 +87,14 @@
       </div>
     </section>
 
-    <!-- ===== QUIZ ===== -->
-    <section id="quiz" class="panel">
-      <header class="panel-head"><h2>Quiz — Rappel actif</h2></header>
-      <div id="quizWrap"></div>
-    </section>
-
-    <!-- ===== RÉCIT ===== -->
-    <section id="recit" class="panel">
-      <header class="panel-head"><h2>Récit minute</h2></header>
-      <div class="grid">
-        <textarea id="recitText" rows="10" class="textbox" placeholder="Écris ton récit ici…"></textarea>
-        <aside class="hint">
-          <details><summary>Afficher un exemple</summary><p class="muted">Dès le XVe siècle, les Européens colonisent…</p></details>
-          <div class="actions">
-            <button class="btn" id="saveRecit">Enregistrer</button>
-            <button class="btn ghost" id="clearRecit">Effacer</button>
-            <span id="recitInfo" class="muted"></span>
-          </div>
-        </aside>
-      </div>
+    <!-- ===== QUIZ TRIANGULÉ ===== -->
+    <section id="triQuiz" class="panel">
+      <header class="panel-head"><h2>Quiz triangulé — 20 questions</h2></header>
+      <div id="triQuizWrap"></div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><small>Site hors-ligne — vos données restent locales.</small></div></footer>
+  <footer class="site-footer"><div class="container"><small>Site hors-ligne — données locales uniquement.</small></div></footer>
   <script src="app.js"></script>
 </body>
 </html>
