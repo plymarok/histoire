@@ -10,12 +10,16 @@
   --edge-good:var(--accent-2); --edge-danger:var(--danger);
   --edge-label:var(--muted);
 
-  /* Quiz / options (dark) */
+  /* Quiz (dark) */
   --opt-bg: color-mix(in oklab, var(--panel) 90%, #0f1420 10%);
   --opt-right-bg: color-mix(in oklab, var(--panel) 85%, #10331f 15%);
   --opt-right-border:#2a5a3d;
   --opt-wrong-bg: color-mix(in oklab, var(--panel) 85%, #3a1416 15%);
   --opt-wrong-border:#5a2a2f;
+
+  /* Encarts schéma */
+  --call-fill: color-mix(in oklab, var(--panel) 92%, #0e1625 8%);
+  --call-stroke: var(--node-stroke);
 }
 html[data-theme="light"]{
   --bg:#f7f8fb; --panel:#ffffff; --ink:#0b1220; --muted:#556070;
@@ -25,10 +29,13 @@ html[data-theme="light"]{
   --node-fill:#f1f6ff; --node-stroke:#94add0;
   --edge-good:#2d7a46; --edge-danger:#c23a3a; --edge-label:#4b5563;
 
-  /* Quiz (clair contrasté) */
+  /* Quiz (clair) */
   --opt-bg:#ffffff;
   --opt-right-bg:#eaf7ef; --opt-right-border:#2e7d32;
   --opt-wrong-bg:#fdecec; --opt-wrong-border:#d83b42;
+
+  /* Encarts schéma (clair) */
+  --call-fill:#ffffff;
 }
 
 *{box-sizing:border-box}
@@ -90,6 +97,11 @@ svg{max-width:100%; height:auto}
 .edge.danger{stroke:var(--edge-danger)}
 .edge-label{fill:var(--edge-label); font-size:13px}
 .mk1{fill:var(--edge-good)} .mk2{fill:var(--edge-danger)}
+.call rect{fill:var(--call-fill); stroke:var(--call-stroke); stroke-width:1.2; rx:12; ry:12}
+.call text{fill:var(--ink); font-size:13.5px}
+.pin circle{fill:var(--edge-good)}
+.pin.danger circle{fill:var(--edge-danger)}
+.pin text{fill:#fff; font-weight:700; font-size:12px}
 
 /* ===== Flashcards ===== */
 .flash{padding:18px 22px}
