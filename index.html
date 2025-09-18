@@ -1,448 +1,213 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Réviser — Expansion européenne, plantations et traite atlantique</title>
-<style>
-  :root{
-    --bg:#0f1115; --panel:#171a21; --ink:#e9ecf1; --muted:#9aa4b2;
-    --accent:#5aa9e6; --accent-2:#7bd389; --warn:#f5a623; --bad:#ef6b73;
-    --ring: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
-    --radius:18px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-    color:var(--ink); background:radial-gradient(1200px 800px at 10% -10%, #1a1f2b 0%, var(--bg) 60%);
-  }
-  header{
-    position:sticky; top:0; z-index:2;
-    backdrop-filter: blur(6px);
-    background: color-mix(in oklab, var(--bg) 85%, #1b2030 15%);
-    border-bottom:1px solid #252a36;
-  }
-  .wrap{max-width:1000px; margin:auto; padding:18px 22px}
-  .title{
-    display:flex; gap:14px; align-items:center; justify-content:space-between;
-  }
-  .title h1{margin:0; font-size:clamp(20px,2.4vw,28px); letter-spacing:.2px}
-  .title small{color:var(--muted)}
-  nav{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-  nav a{
-    color:var(--ink); text-decoration:none; background:#1b2130; padding:8px 12px; border-radius:12px;
-    border:1px solid #253044; transition:.18s; font-size:14px
-  }
-  nav a:hover{transform:translateY(-1px); box-shadow: var(--ring)}
-  main{padding:18px 22px}
-  section{margin:28px 0; background:var(--panel); border:1px solid #252a36; border-radius:var(--radius); overflow:hidden}
-  section header{
-    position:relative; top:auto; background:linear-gradient(90deg, #1a2030, #171a21);
-    border-bottom:1px solid #252a36;
-  }
-  section h2{margin:0; padding:16px 18px; font-size:clamp(18px,2vw,22px)}
-  .content{padding:18px}
-  .grid{display:grid; gap:16px}
-  @media (min-width:880px){ .grid.cols-2{grid-template-columns:1fr 1fr} }
-
-  .badge{display:inline-flex; align-items:center; gap:6px; font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid #2a3142; color:var(--muted)}
-  .btn{
-    appearance:none; border:1px solid #2a3142; background:#1c2231; color:var(--ink);
-    padding:10px 14px; border-radius:14px; cursor:pointer; transition:.18s; font-weight:600;
-  }
-  .btn:hover{transform:translateY(-1px); box-shadow: var(--ring)}
-  .btn.ghost{background:transparent}
-  .btn.success{border-color:#254533; background:#1c2a22}
-  .btn.warn{border-color:#5a3b10; background:#2a1f14}
-  .muted{color:var(--muted)}
-  .kbd{font:12px ui-monospace,SFMono-Regular,Menlo,monospace; background:#0e1117; border:1px solid #2a3142; padding:2px 6px; border-radius:8px}
-
-  /* Cards */
-  .card{background:#121621; border:1px solid #242a38; border-radius:16px; padding:16px}
-  .callout{border-left:4px solid var(--accent); background:#121a26; border-radius:12px; padding:14px 16px}
-  .list{margin:10px 0 0 0; padding-left:18px}
-  .list li{margin:6px 0}
-  .hl{color:var(--accent)}
-  .ok{color:var(--accent-2)}
-  .bad{color:var(--bad)}
-
-  /* Flashcards */
-  .flash{
-    position:relative; height:220px; perspective: 1000px;
-  }
-  .flip{
-    position:absolute; inset:0; border-radius:18px; border:1px solid #2a3142; background:#101521;
-    display:grid; place-items:center; padding:22px; text-align:center;
-    transform-style:preserve-3d; transition: transform .5s;
-  }
-  .flip.is-flipped{transform: rotateY(180deg)}
-  .pane{
-    position:absolute; inset:0; backface-visibility:hidden; display:grid; place-items:center; padding:18px
-  }
-  .pane.back{transform: rotateY(180deg)}
-  .flash-actions{display:flex; gap:10px; margin-top:12px}
-
-  /* Quiz */
-  .q{border:1px solid #2a3142; border-radius:14px; padding:14px; margin:14px 0; background:#0f1420}
-  .q h4{margin:0 0 8px 0}
-  .opt{display:block; padding:10px 12px; border:1px solid #273147; border-radius:12px; margin:8px 0; cursor:pointer}
-  .opt[data-picked="true"]{outline:2px solid color-mix(in oklab, var(--accent) 60%, transparent)}
-  .opt[data-state="right"]{background:#0f1c14; border-color:#284a35}
-  .opt[data-state="wrong"]{background:#1f1314; border-color:#543032}
-
-  /* Triangle */
-  .svgwrap{display:grid; place-items:center; padding:8px; background:#101522; border:1px solid #253044; border-radius:16px}
-  svg{max-width:100%; height:auto}
-  .node{fill:#192236; stroke:#38506d; stroke-width:1.2}
-  .node text{fill:#e8edf5; font-weight:600}
-  .edge text{fill:#c0c7d4; font-size:13px}
-
-  /* Print */
-  @media print{
-    header, nav, .btn.print-hide{display:none !important}
-    body{background:#fff; color:#000}
-    section{break-inside:avoid}
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leçon — Expansion européenne, plantations & traite atlantique</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <div class="wrap">
-    <div class="title">
-      <h1>Expansion européenne, plantations et traite atlantique — <span class="hl">Apprentissage guidé</span></h1>
-      <small class="badge">Mode révision élégante</small>
+  <header class="site-header">
+    <div class="container headbar">
+      <h1 class="brand">Expansion européenne, plantations & traite atlantique</h1>
+      <button id="themeToggle" class="btn icon" aria-label="Basculer le thème" title="Basculer clair/sombre">
+        <span class="sun" aria-hidden="true">☀️</span>
+        <span class="moon" aria-hidden="true">🌙</span>
+      </button>
     </div>
-    <nav>
-      <a href="#parcours">Parcours 40 min</a>
-      <a href="#synthese">Fiche synthèse</a>
-      <a href="#triangle">Commerce triangulaire</a>
-      <a href="#flash">Flashcards</a>
-      <a href="#quiz">Quiz</a>
-      <a href="#recit">Récit minute</a>
-      <a href="#outil">Outils</a>
+    <nav class="container tabs" aria-label="Navigation principale">
+      <a href="#cours" class="tab">Cours</a>
+      <a href="#triangle" class="tab">Schéma</a>
+      <a href="#flashcards" class="tab">Flashcards</a>
+      <a href="#quiz" class="tab">Quiz</a>
+      <a href="#recit" class="tab">Récit minute</a>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main class="wrap">
+  <main class="container">
+    <!-- ===== COURS ===== -->
+    <section id="cours" class="panel">
+      <header class="panel-head">
+        <h2>Leçon complète</h2>
+        <p class="muted">Relis d’abord les titres, puis les points clés en gras. Tout le contenu ci-dessous reprend fidèlement la leçon.</p>
+      </header>
 
-  <!-- Parcours -->
-  <section id="parcours">
-    <header><h2>Parcours d’apprentissage (≈ 40–45 min)</h2></header>
-    <div class="content grid cols-2">
-      <div class="card">
-        <p class="muted">Suis les étapes. Coche au fur et à mesure (sauvegarde automatique).</p>
-        <ol class="list" id="steps">
-          <li><label><input type="checkbox" data-step="1"> Lecture des titres et reformulation en 1 phrase chacun <span class="badge">5 min</span></label></li>
-          <li><label><input type="checkbox" data-step="2"> Carte mentale (6 branches, 3 mots-clés/branche) <span class="badge">8 min</span></label></li>
-          <li><label><input type="checkbox" data-step="3"> Chaînes causes → conséquences (3 flèches) <span class="badge">7 min</span></label></li>
-          <li><label><input type="checkbox" data-step="4"> Schéma du commerce triangulaire <span class="badge">7 min</span></label></li>
-          <li><label><input type="checkbox" data-step="5"> Flashcards (rappel actif) <span class="badge">8 min</span></label></li>
-          <li><label><input type="checkbox" data-step="6"> Rédiger le « récit minute » puis corriger <span class="badge">5 min</span></label></li>
-        </ol>
-        <div style="margin-top:10px">
-          <button class="btn ghost" id="resetSteps">Réinitialiser</button>
-        </div>
-      </div>
-      <div class="callout">
-        <strong>Objectif</strong> : être capable d’expliquer le lien <em>colonisation → compagnies &amp; bourgeoisies → plantations → traite → abolition</em> et de définir précisément les mots clés.
-        <div class="list">
-          <li><span class="kbd">J0</span> révision complète</li>
-          <li><span class="kbd">J2</span> flashcards ratées</li>
-          <li><span class="kbd">J5</span> récit + 6 questions</li>
-          <li>Veille contrôle : quiz total</li>
-        </div>
-      </div>
-    </div>
-  </section>
+      <article class="lesson">
+        <h3>I — L’expansion européenne et les bourgeoisies marchandes</h3>
 
-  <!-- Synthèse -->
-  <section id="synthese">
-    <header><h2>Fiche synthèse (à savoir redire)</h2></header>
-    <div class="content grid cols-2">
-      <div class="card">
-        <h3>I. Expansion et bourgeoisies marchandes</h3>
-        <ul class="list">
-          <li>Depuis le XVe siècle, l’Europe colonise d’autres continents.</li>
-          <li>Au XVIIIe siècle, <strong>l’Angleterre domine les mers</strong> ; la <strong>France</strong> perd la plupart de ses colonies.</li>
-          <li><strong>Espagne, Portugal, Hollande</strong> restent de grandes puissances coloniales (affaiblies).</li>
-          <li>L’État accorde aux compagnies un système d’<strong>exclusif</strong> et de <strong>monopoles</strong> entre colonies et métropole.</li>
-          <li>Les <strong>bourgeoisies des ports européens</strong> s’enrichissent et diffusent une consommation coloniale (café, sucre, coton).</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>II. Économie de plantation</h3>
-        <ul class="list">
-          <li>Dans les colonies, des <strong>plantations</strong> produisent pour le marché européen.</li>
-          <li>Cette économie repose sur <strong>l’esclavage</strong> et la <strong>traite atlantique</strong>.</li>
-          <li>Environ <strong>12 millions</strong> d’Africains sont <strong>déportés</strong> vers les Amériques sur des <strong>navires négriers</strong>.</li>
-          <li>Le <strong>Code noir</strong> fixe le statut légal des esclaves.</li>
-          <li>Des <strong>mouvements abolitionnistes</strong> dénoncent les crimes des esclavagistes et militent pour l’abolition.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+        <h4>A — La colonisation</h4>
+        <p>
+          Depuis le <strong>XVe siècle</strong>, l’Europe colonise les autres continents.
+          <strong>La France</strong> domine mais perd presque toutes ses colonies au
+          <strong>XVIII<sup>e</sup> siècle</strong>. <strong>L’Angleterre</strong> domine les mers.
+          <strong>L’Espagne</strong>, le <strong>Portugal</strong> et la <strong>Hollande</strong> sont de
+          grandes puissances coloniales mais affaiblies.
+        </p>
 
-  <!-- Triangle -->
-  <section id="triangle">
-    <header><h2>Commerce triangulaire — Schéma interactif</h2></header>
-    <div class="content">
+        <h4>B — Les grandes compagnies commerciales</h4>
+        <p>
+          Elles obtiennent de l’État un système de l’<strong>exclusif</strong>, des
+          <strong>monopoles commerciaux</strong> entre les colonies et la métropole.
+        </p>
+
+        <h4>C — La bourgeoisie commerciale</h4>
+        <p>
+          Ces commerçants des <strong>grands ports européens</strong> s’enrichissent très vite.
+          Cette <strong>bourgeoisie</strong> devient très puissante et impose partout en Europe une
+          nouvelle consommation exotique (<em>café, sucre, coton</em>).
+        </p>
+
+        <h3>II — L’économie de plantation dans les colonies</h3>
+
+        <h4>A — Le commerce triangulaire</h4>
+        <p>
+          Le marché européen est alimenté par des <strong>plantations</strong> dans les colonies.
+          Pour répondre aux besoins de main-d’œuvre de cette économie, on pratique
+          <strong>l’esclavage de masse</strong>, avec une main-d’œuvre venue d’Afrique.
+        </p>
+
+        <h4>B — Les traites négrières</h4>
+        <p>
+          Une véritable organisation se développe autour du commerce d’esclaves :
+          <strong>la traite atlantique</strong>. Environ <strong>12&nbsp;millions</strong> d’esclaves africains
+          sont <strong>déportés</strong> vers les Amériques dans des <strong>navires négriers</strong>.<br />
+          Le statut des esclaves est établi dans le <strong>Code noir</strong> où ils sont considérés
+          comme des objets.
+        </p>
+
+        <h4>C — Les mouvements abolitionnistes</h4>
+        <p>
+          Certains Européens s’indignent des conditions des esclaves et dénoncent les crimes
+          des <strong>esclavagistes</strong>. Ils militent pour <strong>l’abolition</strong> de la traite
+          et de l’esclavage.
+        </p>
+      </article>
+    </section>
+
+    <!-- ===== SCHÉMA ===== -->
+    <section id="triangle" class="panel">
+      <header class="panel-head">
+        <h2>Schéma — Commerce triangulaire</h2>
+        <p class="muted">Survolez pour lire les légendes. Ce schéma résume la logique économique de la leçon.</p>
+      </header>
       <div class="svgwrap">
-        <svg viewBox="0 0 800 520" role="img" aria-label="Schéma du commerce triangulaire">
+        <svg viewBox="0 0 860 520" role="img" aria-label="Schéma du commerce triangulaire">
           <!-- Nodes -->
           <g class="node">
-            <rect x="60" y="210" rx="14" ry="14" width="180" height="70"></rect>
-            <text x="150" y="252" text-anchor="middle">Europe</text>
+            <rect x="60" y="220" rx="14" ry="14" width="200" height="72"></rect>
+            <text x="160" y="264" text-anchor="middle">Europe</text>
           </g>
           <g class="node">
-            <rect x="320" y="50" rx="14" ry="14" width="160" height="70"></rect>
-            <text x="400" y="92" text-anchor="middle">Afrique</text>
+            <rect x="330" y="60" rx="14" ry="14" width="180" height="72"></rect>
+            <text x="420" y="104" text-anchor="middle">Afrique</text>
           </g>
           <g class="node">
-            <rect x="560" y="370" rx="14" ry="14" width="180" height="70"></rect>
-            <text x="650" y="412" text-anchor="middle">Amériques</text>
+            <rect x="620" y="370" rx="14" ry="14" width="200" height="72"></rect>
+            <text x="720" y="414" text-anchor="middle">Amériques</text>
           </g>
 
-          <!-- Edges -->
-          <g class="edge">
-            <defs>
-              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
-                <polygon points="0 0, 7 3.5, 0 7" fill="#7bd389"></polygon>
-              </marker>
-              <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
-                <polygon points="0 0, 7 3.5, 0 7" fill="#5aa9e6"></polygon>
-              </marker>
-            </defs>
-            <!-- Europe -> Afrique -->
-            <path d="M240 245 C 300 160, 330 130, 400 110" stroke="#7bd389" stroke-width="3" fill="none" marker-end="url(#arrow)"></path>
-            <text x="300" y="150">marchandises (armes, tissus, alcool)</text>
+          <!-- Arrows -->
+          <defs>
+            <marker id="arrA" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
+              <polygon points="0 0, 7 3.5, 0 7" class="mk1"></polygon>
+            </marker>
+            <marker id="arrB" markerWidth="8" markerHeight="8" refX="6" refY="3.5" orient="auto">
+              <polygon points="0 0, 7 3.5, 0 7" class="mk2"></polygon>
+            </marker>
+          </defs>
 
-            <!-- Afrique -> Amériques -->
-            <path d="M400 120 C 520 180, 560 280, 650 370" stroke="#ef6b73" stroke-width="3" fill="none" marker-end="url(#arrow2)"></path>
-            <text x="520" y="230" class="bad">esclaves (déportation)</text>
+          <!-- Europe -> Afrique -->
+          <path d="M260 256 C 320 170, 350 140, 420 120"
+                class="edge good" marker-end="url(#arrA)"></path>
+          <text x="320" y="165" class="edge-label">marchandises (armes, tissus, alcool)</text>
 
-            <!-- Amériques -> Europe -->
-            <path d="M640 370 C 520 360, 360 320, 240 255" stroke="#7bd389" stroke-width="3" fill="none" marker-end="url(#arrow)"></path>
-            <text x="420" y="340">produits coloniaux (sucre, café, coton)</text>
-          </g>
+          <!-- Afrique -> Amériques -->
+          <path d="M420 132 C 540 190, 590 290, 720 380"
+                class="edge danger" marker-end="url(#arrB)"></path>
+          <text x="535" y="235" class="edge-label">esclaves déportés</text>
+
+          <!-- Amériques -> Europe -->
+          <path d="M708 380 C 580 365, 405 325, 260 260"
+                class="edge good" marker-end="url(#arrA)"></path>
+          <text x="450" y="345" class="edge-label">produits coloniaux (sucre, café, coton)</text>
         </svg>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Flashcards -->
-  <section id="flash">
-    <header><h2>Flashcards — Lexique indispensable</h2></header>
-    <div class="content">
-      <div class="flash" id="flash">
-        <div class="flip" id="flip">
-          <div class="pane front"><div>
-            <div class="badge">Recto</div>
-            <h3 id="term">…</h3>
-            <p class="muted">Clique ou appuie sur <span class="kbd">Espace</span> pour retourner</p>
-          </div></div>
-          <div class="pane back"><div>
-            <div class="badge">Verso — définition</div>
-            <p id="def" style="font-size:18px; max-width:560px"></p>
-          </div></div>
+    <!-- ===== FLASHCARDS ===== -->
+    <section id="flashcards" class="panel">
+      <header class="panel-head">
+        <h2>Flashcards — Mots clés</h2>
+        <p class="muted">Clique sur la carte (ou appuie sur <kbd>Espace</kbd>) pour retourner. Garde les cartes que tu ne sais pas.</p>
+      </header>
+
+      <div class="flash">
+        <div class="card" id="flip">
+          <div class="face front">
+            <div class="chip">Recto</div>
+            <h3 id="term">—</h3>
+            <p class="muted">Clique pour voir la définition</p>
+          </div>
+          <div class="face back">
+            <div class="chip">Verso</div>
+            <p id="def" class="def"></p>
+          </div>
+        </div>
+        <div class="flash-actions">
+          <button class="btn" id="btnKnow">Je savais</button>
+          <button class="btn ghost" id="btnDont">Je ne savais pas</button>
+          <button class="btn subtle" id="btnReset">Reprendre</button>
+          <span id="fcProgress" class="muted"></span>
         </div>
       </div>
-      <div class="flash-actions">
-        <button class="btn" id="know">Je savais</button>
-        <button class="btn warn" id="dont">Je ne savais pas</button>
-        <button class="btn ghost" id="restart">Reprendre depuis le début</button>
-        <span class="muted" id="progress"></span>
+    </section>
+
+    <!-- ===== QUIZ ===== -->
+    <section id="quiz" class="panel">
+      <header class="panel-head">
+        <h2>Quiz — Rappel actif</h2>
+        <p class="muted">Choisis une réponse par question puis corrige. Ton score est sauvegardé localement.</p>
+      </header>
+      <div id="quizWrap"></div>
+    </section>
+
+    <!-- ===== RECIT ===== -->
+    <section id="recit" class="panel">
+      <header class="panel-head">
+        <h2>Récit minute</h2>
+        <p class="muted">Sans regarder, rédige 6–8 lignes reliant : colonisation → compagnies & bourgeoisies → plantations → traite → abolition.</p>
+      </header>
+      <div class="grid">
+        <textarea id="recitText" rows="10" class="textbox" placeholder="Écris ton récit ici…"></textarea>
+        <aside class="hint">
+          <details>
+            <summary>Afficher un exemple possible</summary>
+            <p class="muted">
+              Dès le XVe siècle, les Européens colonisent des territoires outre-mer. Aux XVIIe-XVIIIe siècles,
+              les États accordent aux grandes compagnies l’exclusif et des monopoles, ce qui enrichit les
+              bourgeoisies des ports et développe une consommation coloniale (café, sucre, coton). Pour alimenter
+              ce marché, les colonies organisent des plantations reposant sur l’esclavage. La traite atlantique
+              déporte des millions d’Africains vers les Amériques sur des navires négriers ; le Code noir
+              définit leur statut. Face à ces violences, des Européens engagent des mouvements abolitionnistes
+              qui militent pour la fin de la traite et de l’esclavage.
+            </p>
+          </details>
+          <div class="actions">
+            <button class="btn" id="saveRecit">Enregistrer</button>
+            <button class="btn ghost" id="clearRecit">Effacer</button>
+            <span id="recitInfo" class="muted"></span>
+          </div>
+        </aside>
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>Site hors-ligne. Vos données (thème, score, récit, progression flashcards) restent sur votre navigateur.</small>
     </div>
-  </section>
-
-  <!-- Quiz -->
-  <section id="quiz">
-    <header><h2>Quiz noté (rappel actif)</h2></header>
-    <div class="content" id="quizWrap"></div>
-  </section>
-
-  <!-- Récit minute -->
-  <section id="recit">
-    <header><h2>Récit minute — Écrire pour mémoriser</h2></header>
-    <div class="content grid cols-2">
-      <div class="card">
-        <p>Sans regarder ton cours, rédige un paragraphe (6–8 lignes) qui relie chronologiquement : <em>colonisation → compagnies &amp; bourgeoisies → plantations → traite → abolition</em>.</p>
-        <textarea id="recitText" rows="10" style="width:100%; background:#0e1117; color:var(--ink); border:1px solid #2a3142; border-radius:12px; padding:12px" placeholder="Écris ton récit ici…"></textarea>
-        <div style="margin-top:10px; display:flex; gap:10px">
-          <button class="btn" id="saveRecit">Enregistrer</button>
-          <button class="btn ghost" id="clearRecit">Effacer</button>
-        </div>
-        <small class="muted" id="recitInfo"></small>
-      </div>
-      <div class="callout">
-        <strong>Exemple possible (à consulter après avoir écrit) :</strong>
-        <p class="muted" id="exemple" style="display:none">
-          Dès le XVe siècle, les Européens colonisent des territoires outre-mer. Aux XVIIe-XVIIIe siècles, les États accordent aux grandes compagnies l’exclusif et des monopoles, ce qui enrichit les bourgeoisies des ports et développe une consommation coloniale (café, sucre, coton). Pour alimenter ce marché, les colonies organisent des plantations reposant sur l’esclavage. La traite atlantique déporte alors des millions d’Africains vers les Amériques sur des navires négriers ; le Code noir définit leur statut. Face à ces violences, des Européens s’engagent dans les mouvements abolitionnistes qui militent pour la fin de la traite et de l’esclavage.
-        </p>
-        <button class="btn ghost" id="toggleEx">Afficher/masquer l’exemple</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Outils -->
-  <section id="outil">
-    <header><h2>Outils pratiques</h2></header>
-    <div class="content">
-      <button class="btn print-hide" onclick="window.print()">Imprimer la fiche</button>
-      <span class="muted" style="margin-left:10px">Astuce : imprime en mode « A4 portrait ».</span>
-    </div>
-  </section>
-
-  <footer class="wrap" style="opacity:.7; padding-bottom:40px">
-    <small>Page hors-ligne, aucune donnée transmise. Vos progrès (étapes, flashcards, récit, score) sont mémorisés localement dans votre navigateur.</small>
   </footer>
-</main>
 
-<script>
-/* ---------- Local helpers ---------- */
-const $ = sel => document.querySelector(sel);
-const $$ = sel => [...document.querySelectorAll(sel)];
-const store = {
-  get:(k,def)=>{ try{ return JSON.parse(localStorage.getItem(k)) ?? def }catch{ return def } },
-  set:(k,v)=> localStorage.setItem(k, JSON.stringify(v))
-};
-
-/* ---------- Steps ---------- */
-const steps = $("#steps");
-steps.addEventListener("change", e=>{
-  if(e.target.matches('input[type="checkbox"][data-step]')){
-    const map = $$('#steps input').map(i=>i.checked);
-    store.set('steps', map);
-  }
-});
-(function initSteps(){
-  const saved = store.get('steps', []);
-  $$('#steps input').forEach((i,idx)=> i.checked = !!saved[idx]);
-  $('#resetSteps').onclick = ()=>{
-    $$('#steps input').forEach(i=> i.checked=false);
-    store.set('steps', []);
-  };
-})();
-
-/* ---------- Flashcards ---------- */
-const deck = [
-  {t:"Colonisation", d:"Prise de contrôle, par une puissance européenne, d’un territoire d’outre-mer."},
-  {t:"Grandes compagnies commerciales", d:"Entreprises privilégiées par l’État, bénéficiant d’exclusif et de monopoles pour gérer le commerce colonial."},
-  {t:"Exclusif", d:"Obligation pour les colonies de commercer uniquement avec la métropole."},
-  {t:"Monopole", d:"Droit exclusif de produire ou de commercer accordé à une compagnie."},
-  {t:"Bourgeoisie marchande", d:"Négociants des grands ports européens qui s’enrichissent grâce au commerce atlantique."},
-  {t:"Plantation", d:"Grande exploitation coloniale (sucre, café, coton) utilisant une main-d’œuvre servile."},
-  {t:"Traite atlantique", d:"Commerce d’esclaves déportés d’Afrique vers les Amériques."},
-  {t:"Navire négrier", d:"Bateau transportant des esclaves déportés."},
-  {t:"Code noir", d:"Textes fixant le statut légal des esclaves dans les colonies françaises."},
-  {t:"Abolitionnisme", d:"Mouvement militant pour l’abolition de la traite et de l’esclavage."},
-  {t:"Produits coloniaux", d:"Biens issus des colonies et consommés en Europe : sucre, café, coton…"},
-  {t:"Puissances coloniales (XVIIe–XVIIIe)", d:"Angleterre (domine les mers au XVIIIe), France (perd l’essentiel de ses colonies), Espagne, Portugal, Hollande."}
-];
-let queue = store.get('flashQueue', deck.map((_,i)=>i));
-let idx = 0, showingBack = false;
-
-const term = $("#term"), def = $("#def"), flip = $("#flip"), prog = $("#progress");
-
-function renderFlash(){
-  if(queue.length===0){ term.textContent="Session terminée !"; def.textContent="Clique sur « Reprendre depuis le début » ou passe au quiz."; prog.textContent=""; return; }
-  const id = queue[idx % queue.length];
-  term.textContent = deck[id].t;
-  def.textContent = deck[id].d;
-  prog.textContent = `Carte ${idx+1}/${queue.length} • restantes : ${queue.length}`;
-  flip.classList.remove('is-flipped'); showingBack=false;
-}
-renderFlash();
-
-flip.addEventListener('click', ()=>{ showingBack=!showingBack; flip.classList.toggle('is-flipped'); });
-document.addEventListener('keydown', e=>{
-  if(e.code==='Space'){ e.preventDefault(); flip.click(); }
-});
-
-$("#know").onclick = ()=>{
-  if(queue.length===0) return;
-  const id = queue[idx % queue.length];
-  queue = queue.filter(x=>x!==id); // retire la carte connue
-  store.set('flashQueue', queue);
-  idx = 0; renderFlash();
-};
-$("#dont").onclick = ()=>{
-  if(queue.length===0) return;
-  // décale la carte inconnue plus loin (spaced repetition simple)
-  idx = (idx+1) % queue.length; renderFlash();
-};
-$("#restart").onclick = ()=>{
-  queue = deck.map((_,i)=>i); idx=0; store.set('flashQueue', queue); renderFlash();
-};
-
-/* ---------- Quiz ---------- */
-const Q = [
-  {q:"Au XVIIIe siècle, quelle puissance domine les mers ?", opts:["La France","L’Angleterre","Le Portugal","La Hollande"], a:1},
-  {q:"L’« exclusif » signifie que…", opts:["La colonie peut commercer avec qui elle veut","La métropole doit acheter aux colonies au prix imposé","Les colonies commercent uniquement avec la métropole","Les compagnies fixent librement les taxes"], a:2},
-  {q:"Quels produits symbolisent la consommation coloniale ?", opts:["Blé, seigle, orge","Café, sucre, coton","Vin, huile, fromage","Charbon, acier, laine"], a:1},
-  {q:"L’économie de plantation repose principalement sur…", opts:["Le salariat libre","Le servage","L’esclavage","La petite propriété"], a:2},
-  {q:"La traite atlantique correspond à…", opts:["Un échange de marchandises entre ports européens","La déportation d’Africains vers les Amériques","Le retour des colons en Europe","La migration volontaire d’artisans africains"], a:1},
-  {q:"Ordre du triangle Afrique → Amériques :", opts:["Sucre","Esclaves","Armes et tissus","Métaux"], a:1, label:"Afrique → Amériques : esclaves (déportation)"},
-  {q:"Le Code noir est…", opts:["Un navire célèbre","Une carte maritime","Un texte réglementant le statut des esclaves","Un traité entre la France et l’Angleterre"], a:2},
-  {q:"Approximation du nombre d’Africains déportés :", opts:["1 million","5 millions","12 millions","25 millions"], a:2},
-  {q:"Rôle des grandes compagnies commerciales :", opts:["Organiser l’exclusif et des monopoles entre colonies et métropole","Interdire le commerce maritime","Supprimer les taxes","Organiser les révoltes"], a:0},
-  {q:"Les mouvements abolitionnistes visent :", opts:["À étendre la traite","À améliorer les navires","À abolir traite et esclavage","À créer de nouvelles colonies"], a:2}
-];
-const quizWrap = $("#quizWrap");
-let score = 0;
-function makeQuiz(){
-  score = 0; quizWrap.innerHTML="";
-  Q.forEach((item,i)=>{
-    const div = document.createElement('div'); div.className='q'; div.dataset.index=i;
-    div.innerHTML = `<h4>Q${i+1}. ${item.q}</h4>` + item.opts.map((o,j)=>`<div class="opt" data-j="${j}">${o}</div>`).join('');
-    quizWrap.appendChild(div);
-  });
-  const foot = document.createElement('div'); foot.style.marginTop='10px';
-  foot.innerHTML = `<button class="btn" id="submitQuiz">Corriger</button> <button class="btn ghost" id="resetQuiz">Recommencer</button> <span class="muted" id="scoreText"></span>`;
-  quizWrap.appendChild(foot);
-
-  quizWrap.addEventListener('click', e=>{
-    if(e.target.classList.contains('opt')){
-      const box = e.target.closest('.q');
-      [...box.querySelectorAll('.opt')].forEach(x=>x.dataset.picked="false");
-      e.target.dataset.picked="true";
-    }
-  }, {once:false});
-
-  $("#submitQuiz").onclick = ()=>{
-    let correct = 0;
-    $$('.q').forEach((box,k)=>{
-      const pick = box.querySelector('.opt[data-picked="true"]');
-      const right = Q[k].a;
-      if(!pick){ box.querySelectorAll('.opt')[right].dataset.state="right"; return; }
-      const pj = +pick.dataset.j;
-      if(pj===right){ correct++; pick.dataset.state="right"; }
-      else{ pick.dataset.state="wrong"; box.querySelectorAll('.opt')[right].dataset.state="right"; }
-    });
-    score = correct;
-    const txt = `Score : ${correct}/${Q.length}`;
-    $("#scoreText").textContent = txt;
-    store.set('score', {v:correct, t:Q.length, at:Date.now()});
-  };
-
-  $("#resetQuiz").onclick = makeQuiz;
-}
-makeQuiz();
-const savedScore = store.get('score', null);
-if(savedScore){ const d = new Date(savedScore.at); const s = `Dernier score enregistré : ${savedScore.v}/${savedScore.t} (le ${d.toLocaleDateString()} à ${d.toLocaleTimeString()})`; const info = document.createElement('div'); info.className='muted'; info.style.margin='6px 0'; info.textContent=s; quizWrap.prepend(info); }
-
-/* ---------- Récit minute ---------- */
-const recitText = $("#recitText"), recitInfo=$("#recitInfo");
-function loadRecit(){ const v = store.get('recit',''); recitText.value=v; recitInfo.textContent = v? "Enregistré. Tu peux poursuivre plus tard." : ""; }
-loadRecit();
-$("#saveRecit").onclick = ()=>{ store.set('recit', recitText.value); loadRecit(); };
-$("#clearRecit").onclick = ()=>{ recitText.value=""; store.set('recit',""); loadRecit(); };
-$("#toggleEx").onclick = ()=>{ const el=$("#exemple"); el.style.display = (el.style.display==="none") ? "block" : "none"; };
-
-/* Focus hash target for smoothness */
-if('scrollBehavior' in document.documentElement.style){ document.querySelectorAll('a[href^="#"]').forEach(a=> a.addEventListener('click', e=>{ /* smooth by default in modern browsers */ })); }
-</script>
+  <script src="app.js"></script>
 </body>
 </html>
