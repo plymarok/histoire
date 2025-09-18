@@ -28,40 +28,49 @@ document.getElementById("btnDont").onclick=()=>{fcIndex=(fcIndex+1)%flashcards.l
 document.getElementById("btnReset").onclick=()=>{fcIndex=0;known=0;card.classList.remove("is-flipped");updateCard();}
 updateCard();
 
-// === Quiz triangulé ===
-const triData=[ /* les 20 questions F1/F2/F3 comme déjà fourni */ 
+// === Quiz triangulé (12 questions) ===
+const triData=[
   {
-    f1:{q:"Au XVIIIe siècle, quelle puissance domine les mers ?",a:"L’Angleterre."},
-    f2:{q:"Pourquoi la domination maritime anglaise est-elle un atout économique ?",a:"Parce qu’elle permet de contrôler le commerce mondial et les routes coloniales."},
-    f3:{q:"Quelles conséquences cette domination a-t-elle pour la France ?",a:"Elle perd une partie de son influence et de ses colonies."}
+    f1:{q:"Quand commence la colonisation européenne ?",a:"Au XVe siècle."},
+    f2:{q:"Qui domine au départ ?",a:"Espagne et Portugal."},
+    f3:{q:"Qui prend le relais au XVIIIe siècle ?",a:"L’Angleterre et la France."}
   },
   {
-    f1:{q:"Qu’appelle-t-on l’« exclusif » dans le commerce colonial ?",a:"Un système de monopoles commerciaux entre colonies et métropole."},
-    f2:{q:"Pourquoi l’exclusif enrichit-il surtout la métropole ?",a:"Parce que toutes les marchandises coloniales doivent passer par elle."},
-    f3:{q:"Quels effets l’exclusif a-t-il sur les colonies ?",a:"Elles ne peuvent pas commercer librement et restent dépendantes."}
+    f1:{q:"Quelle puissance domine les mers au XVIIIe siècle ?",a:"L’Angleterre."},
+    f2:{q:"Pourquoi cette domination est-elle un atout ?",a:"Elle permet de contrôler le commerce mondial."},
+    f3:{q:"Conséquence pour la France ?",a:"Perte d’influence et de colonies."}
   },
-  // ... (18 autres blocs identiques à ceux que je t’ai donnés)
-];
-const quizDiv=document.getElementById("triQuizWrap");
-triData.forEach((item,i)=>{
-  const card=document.createElement("div");
-  card.className="tri-card";
-  const title=document.createElement("h4");
-  title.textContent=`Q${i+1}. ${item.f1.q}`;
-  card.appendChild(title);
-  ["f1","f2","f3"].forEach((key,j)=>{
-    const f=document.createElement("div");
-    f.className="faisceau";
-    f.innerHTML=`<strong>F${j+1}:</strong> ${item[key].q}`;
-    f.addEventListener("click",()=>{
-      f.classList.toggle("open");
-      if(f.classList.contains("open")){
-        f.innerHTML=`<strong>F${j+1}:</strong> ${item[key].q}<br><em>Réponse:</em> ${item[key].a}`;
-      }else{
-        f.innerHTML=`<strong>F${j+1}:</strong> ${item[key].q}`;
-      }
-    });
-    card.appendChild(f);
-  });
-  quizDiv.appendChild(card);
-});
+  {
+    f1:{q:"Qu’est-ce que l’« exclusif » ?",a:"Un monopole commercial colonies ↔ métropole."},
+    f2:{q:"Pourquoi enrichit-il la métropole ?",a:"Toutes les marchandises doivent passer par elle."},
+    f3:{q:"Conséquence pour les colonies ?",a:"Elles restent dépendantes et limitées."}
+  },
+  {
+    f1:{q:"Qui s’enrichit grâce aux ports coloniaux ?",a:"La bourgeoisie marchande."},
+    f2:{q:"Pourquoi s’enrichit-elle vite ?",a:"Grâce aux échanges coloniaux."},
+    f3:{q:"Conséquence sociale ?",a:"La bourgeoisie gagne en puissance politique."}
+  },
+  {
+    f1:{q:"Quels produits exotiques s’imposent en Europe ?",a:"Café, sucre, coton."},
+    f2:{q:"Pourquoi séduisent-ils ?",a:"Nouveauté, goût, prestige."},
+    f3:{q:"Effet social ?",a:"Nouvelle consommation, mode bourgeoise."}
+  },
+  {
+    f1:{q:"Qu’est-ce que le commerce triangulaire ?",a:"Échanges Europe ↔ Afrique ↔ Amériques."},
+    f2:{q:"Pourquoi dit-on « triangulaire » ?",a:"Parce qu’il relie trois continents."},
+    f3:{q:"But global ?",a:"Alimenter l’Europe grâce à l’esclavage."}
+  },
+  {
+    f1:{q:"Combien d’Africains sont déportés ?",a:"Environ 12 millions."},
+    f2:{q:"Quelles régions touchées ?",a:"Afrique de l’Ouest et centrale."},
+    f3:{q:"Conséquence ?",a:"Appauvrissement démographique."}
+  },
+  {
+    f1:{q:"Comment s’appellent les bateaux d’esclaves ?",a:"Les navires négriers."},
+    f2:{q:"Conditions de transport ?",a:"Cales surchargées, insalubres."},
+    f3:{q:"Conséquence ?",a:"Taux de mortalité très élevé."}
+  },
+  {
+    f1:{q:"Quel texte fixe le statut des esclaves ?",a:"Le Code noir."},
+    f2:{q:"Que dit-il ?",a:"Les esclaves sont des biens meubles."},
+    f3:{q:"Ce que cela révèle ?",a:"Une désh
