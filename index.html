@@ -11,8 +11,7 @@
     <div class="container headbar">
       <h1 class="brand">Expansion européenne, plantations & traite atlantique</h1>
       <button id="themeToggle" class="btn icon" aria-label="Basculer le thème" title="Basculer clair/sombre">
-        <span class="sun" aria-hidden="true">☀️</span>
-        <span class="moon" aria-hidden="true">🌙</span>
+        <span aria-hidden="true">🌓</span>
       </button>
     </div>
     <nav class="container tabs" aria-label="Navigation principale">
@@ -29,7 +28,7 @@
     <section id="cours" class="panel">
       <header class="panel-head">
         <h2>Leçon complète</h2>
-        <p class="muted">Relis d’abord les titres, puis les points clés en gras. Tout le contenu ci-dessous reprend fidèlement la leçon.</p>
+        <p class="muted">Tout le contenu ci-dessous reprend fidèlement la leçon.</p>
       </header>
 
       <article class="lesson">
@@ -88,7 +87,7 @@
     <section id="triangle" class="panel">
       <header class="panel-head">
         <h2>Schéma — Commerce triangulaire</h2>
-        <p class="muted">Survolez pour lire les légendes. Ce schéma résume la logique économique de la leçon.</p>
+        <p class="muted">Ce schéma résume les circulations Europe ⇄ Afrique ⇄ Amériques.</p>
       </header>
       <div class="svgwrap">
         <svg viewBox="0 0 860 520" role="img" aria-label="Schéma du commerce triangulaire">
@@ -138,7 +137,7 @@
     <section id="flashcards" class="panel">
       <header class="panel-head">
         <h2>Flashcards — Mots clés</h2>
-        <p class="muted">Clique sur la carte (ou appuie sur <kbd>Espace</kbd>) pour retourner. Garde les cartes que tu ne sais pas.</p>
+        <p class="muted">Clique pour retourner. « Suivant » défile ; « Je savais » retire la carte ; « Je ne savais pas » la replanifie.</p>
       </header>
 
       <div class="flash">
@@ -154,60 +153,10 @@
           </div>
         </div>
         <div class="flash-actions">
+          <button class="btn" id="btnNext">Suivant</button>
           <button class="btn" id="btnKnow">Je savais</button>
           <button class="btn ghost" id="btnDont">Je ne savais pas</button>
           <button class="btn subtle" id="btnReset">Reprendre</button>
           <span id="fcProgress" class="muted"></span>
         </div>
       </div>
-    </section>
-
-    <!-- ===== QUIZ ===== -->
-    <section id="quiz" class="panel">
-      <header class="panel-head">
-        <h2>Quiz — Rappel actif</h2>
-        <p class="muted">Choisis une réponse par question puis corrige. Ton score est sauvegardé localement.</p>
-      </header>
-      <div id="quizWrap"></div>
-    </section>
-
-    <!-- ===== RECIT ===== -->
-    <section id="recit" class="panel">
-      <header class="panel-head">
-        <h2>Récit minute</h2>
-        <p class="muted">Sans regarder, rédige 6–8 lignes reliant : colonisation → compagnies & bourgeoisies → plantations → traite → abolition.</p>
-      </header>
-      <div class="grid">
-        <textarea id="recitText" rows="10" class="textbox" placeholder="Écris ton récit ici…"></textarea>
-        <aside class="hint">
-          <details>
-            <summary>Afficher un exemple possible</summary>
-            <p class="muted">
-              Dès le XVe siècle, les Européens colonisent des territoires outre-mer. Aux XVIIe-XVIIIe siècles,
-              les États accordent aux grandes compagnies l’exclusif et des monopoles, ce qui enrichit les
-              bourgeoisies des ports et développe une consommation coloniale (café, sucre, coton). Pour alimenter
-              ce marché, les colonies organisent des plantations reposant sur l’esclavage. La traite atlantique
-              déporte des millions d’Africains vers les Amériques sur des navires négriers ; le Code noir
-              définit leur statut. Face à ces violences, des Européens engagent des mouvements abolitionnistes
-              qui militent pour la fin de la traite et de l’esclavage.
-            </p>
-          </details>
-          <div class="actions">
-            <button class="btn" id="saveRecit">Enregistrer</button>
-            <button class="btn ghost" id="clearRecit">Effacer</button>
-            <span id="recitInfo" class="muted"></span>
-          </div>
-        </aside>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>Site hors-ligne. Vos données (thème, score, récit, progression flashcards) restent sur votre navigateur.</small>
-    </div>
-  </footer>
-
-  <script src="app.js"></script>
-</body>
-</html>
