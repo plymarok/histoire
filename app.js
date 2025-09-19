@@ -106,5 +106,25 @@ const quizDiv=document.getElementById("triQuizWrap");
 triData.forEach((item,i)=>{
   const card=document.createElement("div");
   card.className="tri-card";
+
   const title=document.createElement("h4");
-  title
+  title.textContent=`Q${i+1}. ${item.f1.q}`;
+  card.appendChild(title);
+
+  ["f1","f2","f3"].forEach((key,j)=>{
+    const f=document.createElement("div");
+    f.className="faisceau";
+    f.innerHTML=`<strong>F${j+1} :</strong> ${item[key].q}`;
+    f.addEventListener("click",()=>{
+      f.classList.toggle("open");
+      if(f.classList.contains("open")){
+        f.innerHTML=`<strong>F${j+1} :</strong> ${item[key].q}<br><em>Réponse :</em> ${item[key].a}`;
+      } else {
+        f.innerHTML=`<strong>F${j+1} :</strong> ${item[key].q}`;
+      }
+    });
+    card.appendChild(f);
+  });
+
+  quizDiv.appendChild(card);
+});
