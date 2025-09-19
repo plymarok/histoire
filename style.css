@@ -21,6 +21,18 @@ body{margin:0;font:16px/1.6 system-ui;background:var(--bg);color:var(--ink)}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:20px 0;padding:20px}
 .panel-head{border-bottom:1px solid var(--line);margin-bottom:12px}
 
+/* Schéma */
+.svgwrap{display:grid;place-items:center}
+.node rect{fill:var(--panel);stroke:var(--line)}
+.node text{fill:var(--ink);font-weight:700}
+.edge{stroke-width:3;fill:none}
+.edge.good{stroke:var(--accent-2)}
+.edge.danger{stroke:var(--danger)}
+.edge-label{fill:var(--muted);font-size:13px}
+.mk1{fill:var(--accent-2)}.mk2{fill:var(--danger)}
+.explications{margin-top:15px}
+.explications p{margin:8px 0}
+
 /* Flashcards */
 .flash{padding:10px;text-align:center}
 .card{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--panel);min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center}
