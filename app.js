@@ -107,6 +107,4 @@ triData.forEach((item,i)=>{
   const card=document.createElement("div");
   card.className="tri-card";
   const title=document.createElement("h4");
-  title.textContent=`Q${i+1}. ${item.f1.q}`;
-  card.appendChild(title);
-  ["f1","f2","f3"].forEach((key
+  title
