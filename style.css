@@ -21,28 +21,15 @@ body{margin:0;font:16px/1.6 system-ui;background:var(--bg);color:var(--ink)}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin:20px 0;padding:20px}
 .panel-head{border-bottom:1px solid var(--line);margin-bottom:12px}
 
-/* Schéma */
-.svgwrap{display:grid;place-items:center}
-.node rect{fill:var(--panel);stroke:var(--line)}
-.node text{fill:var(--ink);font-weight:700}
-.edge{stroke-width:3;fill:none}
-.edge.good{stroke:var(--accent-2)}
-.edge.danger{stroke:var(--danger)}
-.edge-label{fill:var(--muted);font-size:13px}
-.mk1{fill:var(--accent-2)}.mk2{fill:var(--danger)}
-.explications{margin-top:15px}
-.explications p{margin:8px 0}
-
 /* Flashcards */
-.flash{padding:10px}
-.card{position:relative;height:220px;perspective:1000px}
-.card .face{position:absolute;inset:0;border:1px solid var(--line);display:grid;place-items:center;border-radius:12px;backface-visibility:hidden;transition:transform .5s;background:var(--panel)}
-.card .back{transform:rotateY(180deg)}
-.card.is-flipped .front{transform:rotateY(180deg)}
-.card.is-flipped .back{transform:rotateY(360deg)}
-.flash-actions{margin-top:10px;display:flex;gap:8px}
+.flash{padding:10px;text-align:center}
+.card{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--panel);min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.card h3{margin:0 0 12px}
+.card .def{margin:10px 0}
+.next-btn{margin-top:15px}
+.flash-footer{margin-top:10px}
 
-/* Quiz triangulé */
+/* Quiz */
 .tri-card{border:1px solid var(--line);border-radius:12px;margin:14px 0;padding:14px;background:var(--panel)}
 .tri-card h4{margin:0 0 8px 0}
 .faisceau{margin:8px 0;padding:8px;border:1px solid var(--line);border-radius:8px;background:color-mix(in srgb,var(--panel) 90%,#000 10%);cursor:pointer}
