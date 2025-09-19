@@ -16,19 +16,21 @@ const flashcards=[
   {t:"Navires négriers",d:"Bateaux transportant les esclaves."},
   {t:"Abolitionnistes",d:"Mouvements et personnes militant contre l’esclavage."},
 ];
-let fcIndex=0,known=0;
+let fcIndex=0;
 const term=document.getElementById("term"),def=document.getElementById("def"),
-fcProgress=document.getElementById("fcProgress"),card=document.getElementById("flip");
-function updateCard(){term.textContent=flashcards[fcIndex].t;def.textContent=flashcards[fcIndex].d;
-fcProgress.textContent=`${fcIndex+1}/${flashcards.length} (su: ${known})`;}
-card.addEventListener("click",()=>card.classList.toggle("is-flipped"));
-document.getElementById("btnNext").onclick=()=>{fcIndex=(fcIndex+1)%flashcards.length;card.classList.remove("is-flipped");updateCard();}
-document.getElementById("btnKnow").onclick=()=>{known++;fcIndex=(fcIndex+1)%flashcards.length;card.classList.remove("is-flipped");updateCard();}
-document.getElementById("btnDont").onclick=()=>{fcIndex=(fcIndex+1)%flashcards.length;card.classList.remove("is-flipped");updateCard();}
-document.getElementById("btnReset").onclick=()=>{fcIndex=0;known=0;card.classList.remove("is-flipped");updateCard();}
+fcProgress=document.getElementById("fcProgress");
+function updateCard(){
+  term.textContent=flashcards[fcIndex].t;
+  def.textContent="Définition : " + flashcards[fcIndex].d;
+  fcProgress.textContent=`${fcIndex+1}/${flashcards.length}`;
+}
+document.getElementById("btnNext").onclick=()=>{
+  fcIndex=(fcIndex+1)%flashcards.length;
+  updateCard();
+};
 updateCard();
 
-// === Quiz triangulé (12 questions) ===
+// === Quiz (12 questions triangulées) ===
 const triData=[
   {
     f1:{q:"Quand commence la colonisation européenne ?",a:"Au XVe siècle."},
